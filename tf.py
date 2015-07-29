@@ -37,10 +37,11 @@ def main():
         total = sum(word_amount.values())
         word_freq = map(lambda x: (x[0], float(x[1]) / total), word_amount.iteritems())
         print(': '.join(['Start tf', filename]))
+        param = []
         for tup in word_freq:
-            param = (filename, tup[0], tup[1])
-            conn.execute("""INSERT OR IGNORE INTO TFTable VALUES (?, ?, ?)""", param)
-            conn.commit()
+            param.append(filename, tup[0], tup[1])
+        conn.executemany("""INSERT OR IGNORE INTO TFTable VALUES (?, ?, ?)""", param)
+        conn.commit()
         parser.HTMLData = ''
     print('End tfs')
     conn.close()

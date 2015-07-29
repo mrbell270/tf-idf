@@ -5,7 +5,6 @@ from htmlentitydefs import name2codepoint
 class MyHTMLParser(HTMLParser):
     def __init__(self):
         self.HTMLData = ''
-        # self.IgnoreTags = ['link', 'meta', 'script', 'style', 'head', 'body', 'html']
         self.DataTags = ['a', 'p']
         self.WriteData = 0
         self.reset()
