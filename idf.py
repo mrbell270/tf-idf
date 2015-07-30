@@ -10,11 +10,6 @@ import MyParser
 def main():
     conn = sqlite3.connect('TF-IDF.db')
     conn.text_factory = str
-    ########## conn.execute("""DROP TABLE IDFTable""")
-    ########## conn.execute("""CREATE TABLE IDFTable (
-    ##########                   WORD    TEXT   PRIMARY KEY,
-    ##########                   IDF     INT    DEFAULT 0
-    ##########                 );""")
 
     wa = 0
     m = 0
@@ -34,9 +29,6 @@ def main():
         conn.execute("""INSERT OR REPLACE INTO IDFTable VALUES (?, ?)""", param)
         conn.commit()
     print('End idf')
-    # curs = conn.execute('SELECT * FROM IDFTable')
-    # for row2 in curs:
-    #     print(row2)
     conn.close()
 
 

@@ -10,10 +10,6 @@ import MyParser
 def main():
     conn = sqlite3.connect('TF-IDF.db')
     conn.text_factory = str
-    # conn.execute("""DROP TABLE FILESTable""")
-    # conn.execute("""CREATE TABLE FILESTable (
-    #                   DOC     TEXT   PRIMARY KEY
-    #                 );""")
 
     c = conn.execute("""SELECT * FROM FILESTable""")
     for r in c:

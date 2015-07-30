@@ -10,13 +10,6 @@ import MyParser
 def main():
     conn = sqlite3.connect('TF-IDF.db')
     conn.text_factory = str
-    ########## conn.execute("""DROP TABLE TFTable""")
-    ########## conn.execute("""CREATE TABLE TFTable (
-    ##########                   DOC     TEXT   NOT NULL,
-    ##########                   WORD    TEXT   NOT NULL,
-    ##########                   TF      INT    DEFAULT 0,
-    ##########                   PRIMARY KEY(WORD, DOC)
-    ##########                 );""")
 
     parser = MyParser.MyHTMLParser()
     curs_files = conn.execute("""SELECT * FROM FILESTable""")
